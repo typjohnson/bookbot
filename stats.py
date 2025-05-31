@@ -13,3 +13,7 @@ def get_num_chars(text):
         else:
             char_count[char] += 1
     return char_count
+
+def get_char_count_sorted(char_count):
+    sorted_chars = dict(sorted(char_count.items(), key=lambda item: item[1], reverse=True))
+    return sorted_chars
