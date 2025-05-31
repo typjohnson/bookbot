@@ -1,4 +1,14 @@
+import sys
 from stats import get_num_words, get_num_chars, get_char_count_sorted
+
+#including the sys module to access command line arguments to give
+#the CLI program greater capability for analyzing txt files.
+
+#sys.argv returns a list of strings set as arguments for the program
+if len(sys.argv) != 2:
+    print('Please specify the program and a valid path...')
+    print('Usage: python3 main.py <path_to_book>')
+    sys.exit(1)
 
 def get_book_text(file_path):
     with open(file_path) as f:
@@ -8,7 +18,7 @@ def get_book_text(file_path):
 
 def main():
     print("============ BOOKBOT ============")
-    text = get_book_text('books/frankenstein.txt')
+    text = get_book_text(sys.argv[1])
     print(f"Analyzing book found at {text}")
     print("----------- Word Count ----------")
     word_count = get_num_words(text)
